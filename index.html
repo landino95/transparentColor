@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Graphics</title>
+</head>
+<body>
+    
+    <div>
+        <canvas id="canvas" style="background-color: white; opacity: 0.5;" height="50px"; width="50px";></canvas>
+        <p style="color: white;">Canvas</p>
+    </div>
+
+    <div>
+        <svg width="50px" height="50px" id="svg">
+            <rect width="50px" height="50px" style="fill:white;" />
+            <line x1="0" y1="25" x2="50" y2="25" style="stroke:rgb(255,0,0);stroke-width:10" />
+            <line x1="25" y1="0" x2="25" y2="50" style="stroke:rgb(255,0,0);stroke-width:10" />
+        </svg>
+        <p style="color: white;">SVG</p>
+    </div>
+
+    <div>
+        <img src="cross.jpg" id="jpg">
+        <p style="color: white;">JPG</p>
+    </div>
+
+    <p>
+        <img src="cross.png" id="png">
+        <p style="color: white;">PNG</p>
+    </p>
+
+    <div>
+        <img src="cross.gif" id="gif" height="50px" width="50px">
+        <p style="color: white;">GIF</p>
+    </div>
+</body>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.moveTo(50, 25);
+        ctx.lineTo(0, 25);
+        ctx.lineWidth = '10';
+        ctx.stroke();
+        ctx.fillStyle='red';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.moveTo(25, 50);
+        ctx.lineTo(25, 0);
+        ctx.lineWidth = '10';
+        ctx.stroke();
+        ctx.fillStyle='red';
+        ctx.fill();
+
+        let myRectangle = ctx.getSerializedSvg(true);
+    </script>
+    <style>
+        body {
+          background-image: url('plaid.jpg');
+        }
+    </style>
+</html>
